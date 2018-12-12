@@ -1,0 +1,6 @@
+C:\Users\pci161\Documents\Visual Studio 2013\Projects\BlogSite\BlogDataAccessLayer\bin\Debug\BlogDataAccessLayer.dll.config
+C:\Users\pci161\Documents\Visual Studio 2013\Projects\BlogSite\BlogDataAccessLayer\bin\Debug\BlogDataAccessLayer.dll
+C:\Users\pci161\Documents\Visual Studio 2013\Projects\BlogSite\BlogDataAccessLayer\bin\Debug\BlogDataAccessLayer.pdb
+C:\Users\pci161\Documents\Visual Studio 2013\Projects\BlogSite\BlogDataAccessLayer\obj\Debug\BlogDataAccessLayer.csprojResolveAssemblyReference.cache
+C:\Users\pci161\Documents\Visual Studio 2013\Projects\BlogSite\BlogDataAccessLayer\obj\Debug\BlogDataAccessLayer.dll
+C:\Users\pci161\Documents\Visual Studio 2013\Projects\BlogSite\BlogDataAccessLayer\obj\Debug\BlogDataAccessLayer.pdb

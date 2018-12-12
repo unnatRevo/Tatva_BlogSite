@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Blog" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="BlogContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Users" EntityType="Blog.Users" />
+    <EntitySet Name="BlogTopics" EntityType="Blog.BlogTopic" />
+    <AssociationSet Name="UsersBlogTopic" Association="Blog.UsersBlogTopic">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="BlogTopic" EntitySet="BlogTopics" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" Nullable="false" />
+    <Property Name="Password" Type="String" Nullable="false" />
+    <Property Name="EmailID" Type="String" Nullable="false" />
+    <Property Name="FirstName" Type="String" Nullable="false" />
+    <Property Name="LastName" Type="String" Nullable="false" />
+    <NavigationProperty Name="BlogTopics" Relationship="Blog.UsersBlogTopic" FromRole="Users" ToRole="BlogTopic" />
+  </EntityType>
+  <EntityType Name="BlogTopic">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="false" />
+    <Property Name="Category" Type="String" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="Blog.UsersBlogTopic" FromRole="BlogTopic" ToRole="Users" />
+    <Property Name="UsersID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="UsersBlogTopic">
+    <End Type="Blog.Users" Role="Users" Multiplicity="1" />
+    <End Type="Blog.BlogTopic" Role="BlogTopic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BlogTopic">
+        <PropertyRef Name="UsersID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

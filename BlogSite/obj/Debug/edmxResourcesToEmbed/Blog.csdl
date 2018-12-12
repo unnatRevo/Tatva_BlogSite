@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BlogsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BlogCategory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="BlogTopics" Relationship="Self.FK_BlogTopic_CategoryID" FromRole="BlogCategory" ToRole="BlogTopic" />
+  </EntityType>
+  <EntityType Name="BlogTopic">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CategoryID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="BlogCategory" Relationship="Self.FK_BlogTopic_CategoryID" FromRole="BlogTopic" ToRole="BlogCategory" />
+    <NavigationProperty Name="User" Relationship="Self.FK_BlogTopic_UserID" FromRole="BlogTopic" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmailID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="BlogTopics" Relationship="Self.FK_BlogTopic_UserID" FromRole="Users" ToRole="BlogTopic" />
+  </EntityType>
+  <Association Name="FK_BlogTopic_CategoryID">
+    <End Role="BlogCategory" Type="Self.BlogCategory" Multiplicity="1" />
+    <End Role="BlogTopic" Type="Self.BlogTopic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BlogCategory">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BlogTopic">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BlogTopic_UserID">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="BlogTopic" Type="Self.BlogTopic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BlogTopic">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BlogCategories" EntityType="Self.BlogCategory" />
+    <EntitySet Name="BlogTopics" EntityType="Self.BlogTopic" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK_BlogTopic_CategoryID" Association="Self.FK_BlogTopic_CategoryID">
+      <End Role="BlogCategory" EntitySet="BlogCategories" />
+      <End Role="BlogTopic" EntitySet="BlogTopics" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BlogTopic_UserID" Association="Self.FK_BlogTopic_UserID">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="BlogTopic" EntitySet="BlogTopics" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

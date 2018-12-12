@@ -1,0 +1,13 @@
+C:\Users\pci161\Documents\Visual Studio 2013\Projects\BlogSite\BlogDAL\bin\Debug\BlogDAL.dll.config
+C:\Users\pci161\Documents\Visual Studio 2013\Projects\BlogSite\BlogDAL\bin\Debug\BlogDAL.dll
+C:\Users\pci161\Documents\Visual Studio 2013\Projects\BlogSite\BlogDAL\bin\Debug\BlogDAL.pdb
+C:\Users\pci161\Documents\Visual Studio 2013\Projects\BlogSite\BlogDAL\bin\Debug\EntityFramework.dll
+C:\Users\pci161\Documents\Visual Studio 2013\Projects\BlogSite\BlogDAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\pci161\Documents\Visual Studio 2013\Projects\BlogSite\BlogDAL\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\pci161\Documents\Visual Studio 2013\Projects\BlogSite\BlogDAL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\pci161\Documents\Visual Studio 2013\Projects\BlogSite\BlogDAL\bin\Debug\EntityFramework.xml
+C:\Users\pci161\Documents\Visual Studio 2013\Projects\BlogSite\BlogDAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\pci161\Documents\Visual Studio 2013\Projects\BlogSite\BlogDAL\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\pci161\Documents\Visual Studio 2013\Projects\BlogSite\BlogDAL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\pci161\Documents\Visual Studio 2013\Projects\BlogSite\BlogDAL\obj\Debug\BlogDAL.dll
+C:\Users\pci161\Documents\Visual Studio 2013\Projects\BlogSite\BlogDAL\obj\Debug\BlogDAL.pdb
